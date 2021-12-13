@@ -11,9 +11,9 @@ using clone_dev_to.Data;
 
 namespace clone_dev_to.Migrations
 {
-    [DbContext(typeof(PostContext))]
-    [Migration("20211212155629_InitialMigration")]
-    partial class InitialMigration
+    [DbContext(typeof(BloggerContext))]
+    [Migration("20211213042437_SetFkUserID")]
+    partial class SetFkUserID
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,7 +44,13 @@ namespace clone_dev_to.Migrations
                         .HasColumnType("varchar(100)")
                         .HasColumnName("title");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("posts");
                 });
@@ -67,6 +73,48 @@ namespace clone_dev_to.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tags");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("b3d9e7a8-3c31-4aed-9984-c65c14ef0795"),
+                            CreatedDate = new DateTime(2021, 12, 13, 4, 24, 37, 28, DateTimeKind.Utc).AddTicks(9400),
+                            Name = "javascript"
+                        },
+                        new
+                        {
+                            Id = new Guid("b3ce1341-d10c-429f-954b-854f55aef90b"),
+                            CreatedDate = new DateTime(2021, 12, 13, 4, 24, 37, 28, DateTimeKind.Utc).AddTicks(9410),
+                            Name = "webdev"
+                        },
+                        new
+                        {
+                            Id = new Guid("d6b1de80-e44e-412e-957e-8a7e64d494f9"),
+                            CreatedDate = new DateTime(2021, 12, 13, 4, 24, 37, 28, DateTimeKind.Utc).AddTicks(9410),
+                            Name = "beginners"
+                        },
+                        new
+                        {
+                            Id = new Guid("daf5829d-25d3-4f36-b7f6-e6c8ba26bcd0"),
+                            CreatedDate = new DateTime(2021, 12, 13, 4, 24, 37, 28, DateTimeKind.Utc).AddTicks(9410),
+                            Name = "programming"
+                        });
+                });
+
+            modelBuilder.Entity("clone_dev_to.Models.UserModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("full_name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("users");
                 });
 
             modelBuilder.Entity("PostModelTagModel", b =>
@@ -81,7 +129,18 @@ namespace clone_dev_to.Migrations
 
                     b.HasIndex("TagsId");
 
-                    b.ToTable("PostModelTagModel");
+                    b.ToTable("posts_tags", (string)null);
+                });
+
+            modelBuilder.Entity("clone_dev_to.Models.PostModel", b =>
+                {
+                    b.HasOne("clone_dev_to.Models.UserModel", "User")
+                        .WithMany("Posts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PostModelTagModel", b =>
@@ -97,6 +156,11 @@ namespace clone_dev_to.Migrations
                         .HasForeignKey("TagsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("clone_dev_to.Models.UserModel", b =>
+                {
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }

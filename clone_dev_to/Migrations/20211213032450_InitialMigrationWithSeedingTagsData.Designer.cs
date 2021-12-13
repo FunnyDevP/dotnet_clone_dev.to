@@ -11,9 +11,9 @@ using clone_dev_to.Data;
 
 namespace clone_dev_to.Migrations
 {
-    [DbContext(typeof(PostContext))]
-    [Migration("20211212170110_SetTableName")]
-    partial class SetTableName
+    [DbContext(typeof(BloggerContext))]
+    [Migration("20211213032450_InitialMigrationWithSeedingTagsData")]
+    partial class InitialMigrationWithSeedingTagsData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -67,6 +67,32 @@ namespace clone_dev_to.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tags");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("b3d9e7a8-3c31-4aed-9984-c65c14ef0795"),
+                            CreatedDate = new DateTime(2021, 12, 13, 3, 24, 50, 816, DateTimeKind.Utc).AddTicks(2770),
+                            Name = "javascript"
+                        },
+                        new
+                        {
+                            Id = new Guid("b3ce1341-d10c-429f-954b-854f55aef90b"),
+                            CreatedDate = new DateTime(2021, 12, 13, 3, 24, 50, 816, DateTimeKind.Utc).AddTicks(2770),
+                            Name = "webdev"
+                        },
+                        new
+                        {
+                            Id = new Guid("d6b1de80-e44e-412e-957e-8a7e64d494f9"),
+                            CreatedDate = new DateTime(2021, 12, 13, 3, 24, 50, 816, DateTimeKind.Utc).AddTicks(2770),
+                            Name = "beginners"
+                        },
+                        new
+                        {
+                            Id = new Guid("daf5829d-25d3-4f36-b7f6-e6c8ba26bcd0"),
+                            CreatedDate = new DateTime(2021, 12, 13, 3, 24, 50, 816, DateTimeKind.Utc).AddTicks(2780),
+                            Name = "programming"
+                        });
                 });
 
             modelBuilder.Entity("PostModelTagModel", b =>

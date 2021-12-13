@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using clone_dev_to.Data;
@@ -11,9 +12,10 @@ using clone_dev_to.Data;
 namespace clone_dev_to.Migrations
 {
     [DbContext(typeof(BloggerContext))]
-    partial class PostContextModelSnapshot : ModelSnapshot
+    [Migration("20211213041719_InitialTableUser")]
+    partial class InitialTableUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,8 +45,7 @@ namespace clone_dev_to.Migrations
                         .HasColumnName("title");
 
                     b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -76,25 +77,25 @@ namespace clone_dev_to.Migrations
                         new
                         {
                             Id = new Guid("b3d9e7a8-3c31-4aed-9984-c65c14ef0795"),
-                            CreatedDate = new DateTime(2021, 12, 13, 4, 38, 44, 244, DateTimeKind.Utc).AddTicks(5500),
+                            CreatedDate = new DateTime(2021, 12, 13, 4, 17, 18, 865, DateTimeKind.Utc).AddTicks(9380),
                             Name = "javascript"
                         },
                         new
                         {
                             Id = new Guid("b3ce1341-d10c-429f-954b-854f55aef90b"),
-                            CreatedDate = new DateTime(2021, 12, 13, 4, 38, 44, 244, DateTimeKind.Utc).AddTicks(5500),
+                            CreatedDate = new DateTime(2021, 12, 13, 4, 17, 18, 865, DateTimeKind.Utc).AddTicks(9390),
                             Name = "webdev"
                         },
                         new
                         {
                             Id = new Guid("d6b1de80-e44e-412e-957e-8a7e64d494f9"),
-                            CreatedDate = new DateTime(2021, 12, 13, 4, 38, 44, 244, DateTimeKind.Utc).AddTicks(5510),
+                            CreatedDate = new DateTime(2021, 12, 13, 4, 17, 18, 865, DateTimeKind.Utc).AddTicks(9390),
                             Name = "beginners"
                         },
                         new
                         {
                             Id = new Guid("daf5829d-25d3-4f36-b7f6-e6c8ba26bcd0"),
-                            CreatedDate = new DateTime(2021, 12, 13, 4, 38, 44, 244, DateTimeKind.Utc).AddTicks(5510),
+                            CreatedDate = new DateTime(2021, 12, 13, 4, 17, 18, 865, DateTimeKind.Utc).AddTicks(9390),
                             Name = "programming"
                         });
                 });
@@ -113,23 +114,6 @@ namespace clone_dev_to.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("68a580be-eacd-4551-bfb1-e45efbc44062"),
-                            FullName = "Hello World"
-                        },
-                        new
-                        {
-                            Id = new Guid("50249762-0f32-4f3d-9704-ff9e5863bc86"),
-                            FullName = "Funny Dev"
-                        },
-                        new
-                        {
-                            Id = new Guid("0242f16c-2e5d-4839-ba0d-bb90842bd98a"),
-                            FullName = "John F. Night"
-                        });
                 });
 
             modelBuilder.Entity("PostModelTagModel", b =>

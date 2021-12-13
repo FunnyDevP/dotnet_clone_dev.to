@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // register db context
 var connectionString = builder.Configuration["ConnectionStrings:Postgres"];
 
-builder.Services.AddDbContext<PostContext>(
+builder.Services.AddDbContext<BloggerContext>(
     opts => opts.UseNpgsql(connectionString));
 
 // Add services to the container.

@@ -19,5 +19,11 @@ public class PostModel
     [Column("publication_date")]
     public DateTime PublicationDate { get; set; }
 
+    // Many to Many: Post and Tags
     public ICollection<TagModel> Tags { get; set; }
+    
+    // One to Many: User and Post
+    [Column("user_id")]
+    public Guid UserId { get; set; }
+    public UserModel User { get; set; }
 }
