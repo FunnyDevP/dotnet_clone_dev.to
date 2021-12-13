@@ -5,50 +5,47 @@ using Microsoft.EntityFrameworkCore;
 
 namespace clone_dev_to.Controllers;
 
+
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
     private readonly BloggerContext _ctx;
-    
+
     private static readonly string[] Summaries = new[]
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching","Scorchingasdf"
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching",
+        "Scorchingasdf"
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger,BloggerContext ctx)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, BloggerContext ctx)
     {
         _ctx = ctx;
         _logger = logger;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    public IActionResult Get()
     {
-        // var tags = _ctx.Tags.ToList();
-        // Console.WriteLine(tags);
-        // foreach (var tag in tags)
-        // {
-        //     Console.WriteLine(tag.Id);
-        //     Console.WriteLine(tag.Name);
-        // }
+        // var postAndTags = _ctx.Posts
+        //     .Include(p => p.Tags)
+        //     .Include(p => p.User)
+        //     .OrderByDescending(p => p.PublicationDate).ToList();
         //
-        // _ctx.Posts.Add(new PostModel
+        // var result = postAndTags.Select(p => new Content
         // {
-        //     Title = "React 101",
-        //     Detail = "aspdofnsdadvnaspdnsadlkfnasldkfnaskd;fnas;dlkf",
-        //     PublicationDate = DateTime.UtcNow,
-        //     Tags = tags
-        // });
-        // _ctx.SaveChanges();
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+        //     UserId = p.UserId,
+        //     FullName = p.User.FullName,
+        //     PublicationDate = p.PublicationDate,
+        //     BlogId = p.Id,
+        //     BlogTitle = p.Title,
+        //     BlogDetail = p.Detail,
+        //     BlogTags = p.Tags.Select(t => new Tag{Id = t.Id,Name = t.Name}).ToList()
+        // }).ToList();
+        
+        
+        return Ok("result");
     }
 }
