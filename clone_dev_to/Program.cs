@@ -1,4 +1,13 @@
+using clone_dev_to.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// register db context
+var connectionString = builder.Configuration["ConnectionStrings:Postgres"];
+
+builder.Services.AddDbContext<PostContext>(
+    opts => opts.UseNpgsql(connectionString));
 
 // Add services to the container.
 
@@ -8,6 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

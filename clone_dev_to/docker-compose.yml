@@ -1,0 +1,12 @@
+version: '3'
+services:
+  db:
+    image: postgres:14.0-alpine
+    container_name: clone_dev_dot_to_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: clone_dev_dot_to_user
+      POSTGRES_PASSWORD: clone_dev_dot_to_pass
+      POSTGRES_DB: clone_dev_dot_to
+    restart: always
