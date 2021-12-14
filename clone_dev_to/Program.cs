@@ -7,9 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// allow cors
+builder.Services.AddCors();
+
 // register db context
 var connectionString = builder.Configuration["ConnectionStrings:Postgres"];
-
 builder.Services.AddDbContext<BloggerContext>(
     opts => opts.UseNpgsql(connectionString));
 
@@ -33,6 +36,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// global cors policy
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
 
 app.UseAuthorization();
 
