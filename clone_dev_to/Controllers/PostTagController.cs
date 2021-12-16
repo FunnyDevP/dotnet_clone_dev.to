@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace clone_dev_to.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/post/tags")]
     [ApiController]
     public class PostTagController : ControllerBase
     {
