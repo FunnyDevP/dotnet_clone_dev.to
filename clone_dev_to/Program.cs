@@ -17,6 +17,7 @@ builder.Services.AddDbContext<BloggerContext>(
     opts => opts.UseNpgsql(connectionString));
 
 // Add services to the container.
+builder.Services.AddScoped<IRepository<PostTagModel>,PostTagRepository>();
 builder.Services.AddScoped<IRepository<PostModel>, PostRepository>();
 builder.Services.AddScoped<IPostService, PostService>();
 

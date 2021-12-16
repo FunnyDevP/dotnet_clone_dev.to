@@ -10,7 +10,7 @@ public class BloggerContext : DbContext
     }
 
     public DbSet<PostModel> Posts { get; set; }
-    public DbSet<TagModel> Tags { get; set; }
+    public DbSet<PostTagModel> Tags { get; set; }
     public DbSet<UserModel> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,8 +25,8 @@ public class BloggerContext : DbContext
             .WithOne(p => p.User);
         
         // seeding data: Tags
-        modelBuilder.Entity<TagModel>().HasData(
-            new List<TagModel>
+        modelBuilder.Entity<PostTagModel>().HasData(
+            new List<PostTagModel>
             {
                 new()
                 {
@@ -50,6 +50,42 @@ public class BloggerContext : DbContext
                 {
                     Id = new Guid("daf5829d-25d3-4f36-b7f6-e6c8ba26bcd0"),
                     Name = "programming",
+                    CreatedDate = DateTime.UtcNow
+                },
+                new()
+                {
+                    Id = new Guid("4cc2f0e6-0f70-4d4c-b2fd-3b3b300c8146"),
+                    Name = "react",
+                    CreatedDate = DateTime.UtcNow
+                },
+                new()
+                {
+                    Id = new Guid("57db3aa1-c82e-4e8f-89b4-6f176af151d9"),
+                    Name = "typescript",
+                    CreatedDate = DateTime.UtcNow
+                },
+                new()
+                {
+                    Id = new Guid("90092c47-ee62-4575-a7a2-dc7af0a10139"),
+                    Name = "go",
+                    CreatedDate = DateTime.UtcNow
+                },
+                new()
+                {
+                    Id = new Guid("f11813ff-8572-488b-9b7f-3fe4ef645fb1"),
+                    Name = "docker",
+                    CreatedDate = DateTime.UtcNow
+                },
+                new()
+                {
+                    Id = new Guid("67dc73c6-6a6e-411c-87ee-acb1ce62d3b9"),
+                    Name = "swift",
+                    CreatedDate = DateTime.UtcNow
+                },
+                new()
+                {
+                    Id = new Guid("9a5ffe6b-c39d-410e-9a03-322b27da2257"),
+                    Name = "kubernetes",
                     CreatedDate = DateTime.UtcNow
                 },
             });

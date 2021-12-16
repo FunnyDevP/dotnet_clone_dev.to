@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace clone_dev_to.Models;
 
 [Table("tags")]
-public class TagModel
+public class PostTagModel
 {
     public Guid Id { get; set; }
 

@@ -20,7 +20,7 @@ public class PostModel
     public DateTime PublicationDate { get; set; }
 
     // Many to Many: Post and Tags
-    public ICollection<TagModel> Tags { get; set; }
+    public ICollection<PostTagModel> Tags { get; set; }
     
     // One to Many: User and Post
     [Column("user_id")]
