@@ -4,6 +4,7 @@ using clone_dev_to.Repositories;
 using clone_dev_to.Services;
 using clone_dev_to.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<BloggerContext>(
 // Add services to the container.
 builder.Services.AddScoped<IRepository<PostTagModel>,PostTagRepository>();
 builder.Services.AddScoped<IRepository<PostModel>, PostRepository>();
+builder.Services.AddScoped<IPostTagService, PostTagService>();
 builder.Services.AddScoped<IPostService, PostService>();
 
 builder.Services.AddControllers().AddNewtonsoftJson();
