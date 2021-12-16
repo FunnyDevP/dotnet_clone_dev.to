@@ -24,13 +24,9 @@ namespace clone_dev_to.Controllers
         public IActionResult GetAll()
         {
             var result = _service.GetAll();
-            if (result.Count == 0)
-            {
-                return Ok(new ResponseSuccess<List<PostTagDto>>(new List<PostTagDto>()));
-            }
-
-            var successResp = new ResponseSuccess<List<PostTagDto>>(result);
-            return Ok(successResp);
+            return result.Count == 0
+                ? Ok(new ResponseSuccess<List<PostTagDto>>(new List<PostTagDto>()))
+                : Ok(new ResponseSuccess<List<PostTagDto>>(result));
         }
     }
 }
