@@ -1,0 +1,21 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5fce4db6_002D63e9_002D4e82_002Db454_002De6080ac59741/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetAll_PostDataOnDbIsEmpty_ReturnEmptyListOfPostDto" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Or&gt;
+    &lt;ProjectFile&gt;4EEC38B9-8321-4DE1-859A-F619F8D99C53/d:Services/f:PostServiceTest.cs&lt;/ProjectFile&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;xUnit::4EEC38B9-8321-4DE1-859A-F619F8D99C53::net6.0::clone_dev_to_test.Controllers.PostControllerTest.GetAll_GetEmptyDataFromDB_Return200AndEmptyListInResponseBody&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::4EEC38B9-8321-4DE1-859A-F619F8D99C53::net6.0::clone_dev_to_test.Controllers.PostControllerTest.GetAll_GetPostDataSuccess_Return200WithData&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::4EEC38B9-8321-4DE1-859A-F619F8D99C53::net6.0::clone_dev_to_test.Services.PostTagServiceTest.GetAll_PostDataTagOnDbIsEmpty_ReturnEmptyListOfPostTagDto&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::4EEC38B9-8321-4DE1-859A-F619F8D99C53::net6.0::clone_dev_to_test.Services.PostTagServiceTest.GetAll_GetPostTagDataSuccess_ReturnPostDto&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::4EEC38B9-8321-4DE1-859A-F619F8D99C53::net6.0::clone_dev_to_test.Controllers.PostTagControllerTest.GetAll_GetEmptyDataFromDB_Return200AndEmptyListInResponseBody&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::4EEC38B9-8321-4DE1-859A-F619F8D99C53::net6.0::clone_dev_to_test.Controllers.PostTagControllerTest.GetAll_GetPostDataSuccess_Return200WithData&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+    &lt;ProjectFile&gt;4EEC38B9-8321-4DE1-859A-F619F8D99C53/d:Services/f:PostTagServiceTest.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;4EEC38B9-8321-4DE1-859A-F619F8D99C53/d:Controllers/f:PostTagControllerTest.cs&lt;/ProjectFile&gt;
+  &lt;/Or&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f00b3a82_002Dcf27_002D43e7_002Da631_002D6b1ea41cf230/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetAll_PostDataOnDbIsEmpty_ReturnEmptyListOfPostDto #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::4EEC38B9-8321-4DE1-859A-F619F8D99C53::net6.0::clone_dev_to_test.Services.PostServiceTest.GetAll_PostDataOnDbIsEmpty_ReturnEmptyListOfPostDto&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
